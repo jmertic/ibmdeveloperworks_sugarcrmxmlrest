@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry')) define('sugarEntry', true);
+
 require_once('service/core/SugarRestService.php');
 
 class CustomSugarRestService extends SugarRestService
@@ -36,7 +38,7 @@ class CustomSugarRestService extends SugarRestService
             $GLOBALS['log']->fatal('ERROR: SugarRestService->__construct serverClass '.$this->serverClass.' not found');
         }
 		$GLOBALS['log']->info('End: SugarRestService->__construct');
-	} // ctor
+	}
 	
 	/**
 	 * @see SugarRestService::serve()
@@ -60,5 +62,5 @@ class CustomSugarRestService extends SugarRestService
 		$this->responseServer->faultServer = $responseServer;
 		$responseServer->generateResponse($this->server->serve());
 		$GLOBALS['log']->info('End: SugarRestService->serve');
-	} // fn
+	}
 }
